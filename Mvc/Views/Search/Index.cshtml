@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Mvc.Models.FilmViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.TitlePage = "Search";
+}
+@section css{
+    <link href="~/Content/CssUI/Page.css" rel="stylesheet" />
+}
+<div class="input-group mb-5">
+    <span class="input-group-text" id="basic-addon1" style="width: 4%"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <form action="/Search" method="post" style="width: 96%">
+        <input type="text" name="q" class="form-control" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="basic-addon1">
+    </form>
+</div>
+<div class="mt-5"><a class="text-title" href="/">Trang chủ</a> / @ViewBag.TitlePage</div>
+<div class="mt-2 d-flex flex-dic-row list-film">
+    <div class="content-left">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mt-3">
+                    <div class="card">
+                        @foreach (var childitem in ViewBag.ListFile)
+                        {
+                            if (item.ID == childitem.FilmID)
+                            {
+                                <a href="/Film?id=@item.ID">
+                                    <img src="@childitem.FileContent" style="height: 150px" class="card-img-top" alt="@childitem.Tag">
+                                </a>
+                            }
+                        }
+                        <div class="card-body">
+                            <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="content-right _stickyview">
+        <div class="mt-5 flex-dic-col d-flex mt-5">
+            <div class="title-list-left">
+                <span class="d-flex" style="justify-content: center;">Phim xem nhiều</span>
+            </div>
+            <hr />
+            <div class="list-left ">
+                <div class="row d-flex" style="justify-content: center">
+                    @foreach (var item in ViewBag.TrendFilm)
+                    {
+                        <div class="card mt-5" style="width: 16rem;">
+                            @foreach (var childitem in ViewBag.ListFile)
+                            {
+                                if (item.ID == childitem.FilmID)
+                                {
+                                    <a href="/Film?id=@item.ID"><img src="@childitem.FileContent" class="card-img-top" style="height: 150px;" alt="@childitem.Tag"></a>
+
+                                }
+                            }
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <a href="/Film?id=@item.ID" class="btn btn-primary">Go to Film</a>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

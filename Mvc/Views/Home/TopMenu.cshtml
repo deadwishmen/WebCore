@@ -1,0 +1,60 @@
+﻿
+<nav class="navbar navbar-expand-lg bg-white top-menu-borber _sticky">
+    <div class="container-fluid pd-home">
+        <div class="collapse navbar-collapse space-between" id="navbarSupportedContent">
+            <a class="navbar-brand" href="/">Home</a>
+            <div class="list-topmenu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        @foreach (var item in ViewBag.Category)
+                        {
+                            if (item.Name == "Phim việt")
+                            {
+                                <a class="nav-link" href="/Category?id=@item.ID">Phim Việt</a>
+                            }
+                        }
+                    </li>
+                        <li class="nav-item dropdown _droplist">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Thể loại
+                            </a>
+                            <ul class="dropdown-menu _dropmenu">
+                                @foreach (var item in ViewBag.Category)
+                                {
+                                    <li><a class="dropdown-item" href="/Category?id=@item.ID">@item.Name</a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown _droplist">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Năm
+                            </a>
+                            <ul class="dropdown-menu _dropmenu">
+                                <li><a class="dropdown-item" href="/Category/Tag?year=2018">2018</a></li>
+                                <li><a class="dropdown-item" href="/Category/Tag?year=2019">2019</a></li>
+                                <li><a class="dropdown-item" href="/Category/Tag?year=2020">2020</a></li>
+                                <li><a class="dropdown-item" href="/Category/Tag?year=2021">2021</a></li>
+                                <li><a class="dropdown-item" href="/Category/Tag?year=2022">2022</a></li>
+                            </ul>
+                        </li>
+                        @if (ViewBag.Account == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Login">Đăng nhập</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Logout">Xin chào: @ViewBag.Account</a>
+                            </li>
+                        }
+                    </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>

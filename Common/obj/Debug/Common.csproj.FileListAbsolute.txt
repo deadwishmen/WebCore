@@ -1,0 +1,17 @@
+D:\baitap\BtWeb\Common\bin\Debug\Common.dll
+D:\baitap\BtWeb\Common\bin\Debug\Common.pdb
+D:\baitap\BtWeb\Common\bin\Debug\AutoMapper.dll
+D:\baitap\BtWeb\Common\bin\Debug\Repositories.dll
+D:\baitap\BtWeb\Common\bin\Debug\Entities.dll
+D:\baitap\BtWeb\Common\bin\Debug\EntityFramework.dll
+D:\baitap\BtWeb\Common\bin\Debug\Repositories.pdb
+D:\baitap\BtWeb\Common\bin\Debug\Repositories.dll.config
+D:\baitap\BtWeb\Common\bin\Debug\AutoMapper.xml
+D:\baitap\BtWeb\Common\bin\Debug\Entities.pdb
+D:\baitap\BtWeb\Common\bin\Debug\Entities.dll.config
+D:\baitap\BtWeb\Common\bin\Debug\EntityFramework.xml
+D:\baitap\BtWeb\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+D:\baitap\BtWeb\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\baitap\BtWeb\Common\obj\Debug\Common.csproj.CopyComplete
+D:\baitap\BtWeb\Common\obj\Debug\Common.dll
+D:\baitap\BtWeb\Common\obj\Debug\Common.pdb

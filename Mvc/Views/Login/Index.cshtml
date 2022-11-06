@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/CssUI/Login.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="~/Scripts/JsUI/Login.js"></script>
+}
+<div class="mt-5"><a class="text-title" href="#">Trang chủ</a> / PR</div>
+<div class="mt-2 d-flex flex-dic-row list-film">
+    <div class="content-left">
+        <div class="d-flex flex-dic-col">
+            <span class="txt-title">Đăng Nhập</span>
+            <div class="form-login">
+                <div class="content-login mt-5">
+                    <form class="row g-3 needs-validation" novalidate asp-controller="Login" asp-action="Index" method="post">
+                        @if (ViewBag.validation != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.validation
+                            </div>
+                        }
+                        <div class="mt-3">
+                            <label for="validationCustom01" class="form-label">Username or E-mail</label>
+                            <input name="Username" type="text" class="form-control" id="validationCustom01" placeholder="Username or E-mail" required>
+                            <div class="invalid-feedback">
+                                Vui lòng nhập Username or E-mail
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <label for="validationCustom02" class="form-label">Password</label>
+                            <input name="Password" type="password" class="form-control" id="validationCustom02" placeholder="Password" required>
+                            <div class="invalid-feedback">
+                                Vui lòng nhập Password
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

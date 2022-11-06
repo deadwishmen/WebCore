@@ -1,0 +1,45 @@
+﻿.content-left {
+    width: 80%;
+    height: 100%;
+}
+
+.content-right {
+    width: 20%;
+    height: 100%;
+}
+
+.list-film {
+    width: 100%;
+}
+
+.card {
+    width: 16rem;
+}
+
+.title-list-left span {
+    text-transform: uppercase;
+    color: green;
+    font-weight: 700;
+    text-align: center;
+}
+
+.text-title {
+    text-decoration: none;
+    color: gray;
+}
+.txt-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.form-login{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-login{
+    width: 50%;
+    height: auto;
+
+}

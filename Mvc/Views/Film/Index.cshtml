@@ -1,0 +1,133 @@
+﻿@model Mvc.Models.FilmViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/CssUI/Film.css" rel="stylesheet" asp-append-version="true"/>
+}
+<div class="input-group mb-5">
+    <span class="input-group-text" id="basic-addon1" style="width: 4%"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <input type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Search" style="width: 96%" aria-describedby="basic-addon1">
+</div>
+<div class="mt-5"><a class="text-title" href="#">Trang chủ</a> / PR</div>
+<div class="mt-3 d-flex flex-dic-row">
+    <div class="content-left">
+        <div class="d-flex flex-dic-col content-film">
+            <div class="card" style="width: 100%;">
+                <div class="card-body" style="background: lightgreen">
+                    <p class="card-text" style="text-align: center">@Model.Name</p>
+                </div>
+                @if (ViewBag.File != null)
+                {
+                    foreach (var item in ViewBag.File)
+                    {
+                        if (item.FileType == 1)
+                        {
+                            <img src="@item.FileContent" class="card-img-top pic-mid" alt="@item.Tag" />
+                        }
+                    }
+                }
+            </div>
+            <div class="mt-3 d-flex flex-dic-row btn-event align-btn">
+                <a href="@Model.LinkTrailer" target="_blank"><button type="button" class="btn btn-primary">trailer film</button></a>
+                <a href="/Film/View?w=@Model.ID"><button type="button" class="btn btn-danger ">Xem Online và tải phim</button></a>
+                <a href="/Film/View?w=@Model.ID"><button type="button" class="btn btn-warning">Link Dự Phòng</button></a>
+            </div>
+            <div class="mt-3" style="width: 100%">
+                <div class="alert alert-danger d-flex des-btn flex-dic-col">
+                    <p>Đăng kí thành viên vip để bỏ qua quảng cáo</p>
+                    <p class="txt-danger">Các bạn xem phim miễn phí vui lòng xem hướng dẫn ở cuối trang</p>
+                </div>
+            </div>
+            <div class="mt-3" style="width: 100%">
+                <h4 style="font-weight: 600">Đánh Giá Phim @Model.Name</h4>
+            </div>
+            <div class="mt-3 Film-description">
+                <div class="table-title">
+                    <table class="table" >
+                        <thead>
+                            <tr class="table-secondary">
+                                <th scope="col">THỜI LƯỢNG</th>
+                                <th scope="col">CHẤT LƯỢNG</th>
+                                <th scope="col">NĂM PHÁT HÀNH</th>
+                                <th scope="col">VIỆT HÓA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.Duration p</td>
+                                <td>@Model.Quality</td>
+                                <td>@Model.CreatedDate.Year</td>
+                                <td>mdo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-3">
+                        <h2>Nội dung</h2>
+                        @Model.Description
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3" style="justify-content: left">
+                <div class="title-list">
+                    Phim cùng thể loại
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="row list-bottom">
+
+                    @foreach (var item in ViewBag.Film)
+                    {
+                        if (item.ID != Model.ID)
+                        {
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                <div class="card border-0" style="width: 18rem;">
+                                    @foreach (var childitem in ViewBag.ListFile)
+                                    {
+                                        if (item.ID == childitem.FilmID)
+                                        {
+                                            <a href="/Film?id=@item.ID"><img src="@childitem.FileContent" class="card-img-top" style="height: 150px;" alt="@childitem.Tag"></a>
+
+                                        }
+                                    }
+                                    <div class="card-body _padding-txt-card">
+                                        <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-right _stickyview">
+        <div class="mt-5 flex-dic-col d-flex mt-5">
+            <div class="title-list-left">
+                <span class="d-flex" style="justify-content: center;">Phim xem nhiều</span>
+            </div>
+            <hr />
+            <div class="list-left">
+                <div class="row d-flex" style="justify-content: center">
+                    @foreach(var item in ViewBag.TrendFilm)
+                    {
+                        <div class="card mt-5 border-0" style="width: 16rem;">
+                            @foreach (var childitem in ViewBag.ListFile)
+                            {
+                                if (item.ID == childitem.FilmID)
+                                {
+                                    <a href="/Film?id=@item.ID"><img src="@childitem.FileContent" class="card-img-top" style="height: 150px;" alt="@childitem.Tag"></a>
+                                }
+                            }
+                            <div class="card-body _padding-txt-card">
+                                <h5 class="card-title">@item.Name</h5>
+                                <a href="/Film?id=@item.ID" class="btn btn-primary">Go to Film</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

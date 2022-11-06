@@ -1,0 +1,29 @@
+﻿.content-left{
+    width: 80%;
+    height: 100%;
+   
+}
+.content-right{
+    width: 20%;
+    height: 100%;
+}
+.list-film{
+    width: 100%;
+}
+.card{
+    width: 16rem;
+}
+.title-list-left span{
+    text-transform: uppercase;
+    color: green;
+    font-weight: 700;
+    text-align: center;
+}
+.text-title{
+    text-decoration: none;
+    color: gray;
+}
+.text-title:hover{
+    color: black;
+}
+

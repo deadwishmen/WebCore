@@ -1,0 +1,72 @@
+﻿.content-left {
+    width: 80%;
+    height: 100%;
+    padding: 0px 30px;
+}
+.text-btn {
+    text-decoration: none;
+    color: white;
+}
+.content-right {
+    width: 20%;
+    height: 100%;
+}
+.text-title {
+    text-decoration: none;
+    color: gray;
+}
+.content-film{
+    width: 100%;
+}
+.btn-event button{
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-left: 5px;
+}
+.des-btn{
+    justify-content: center;
+    align-items: center;
+}
+.title-list-left span {
+    text-transform: uppercase;
+    color: green;
+    font-weight: 700;
+    text-align: center;
+}
+.align-btn{
+    align-items: center;
+    justify-content: center;
+}
+.text-title {
+    text-decoration: none;
+    color: gray;
+}
+
+.text-title:hover {
+    color: black;
+}
+.txt-danger{
+    color: black;
+    font-weight: 600;
+}
+.Film-description{
+    border: 1px solid gray;
+    width: 100%;
+}
+.table-title{
+    padding: 20px;
+}
+.title-list{
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: green;
+}
+.list-bottom div.card {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 13rem !important;
+}
+.pic-mid{
+    border-top-left-radius: initial;
+}

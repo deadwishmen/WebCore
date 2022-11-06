@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Mvc.Models.FilmViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.TitlePage = "Tag";
+    var pagination = (Mvc.Models.PaginationModel)ViewBag.Pagination;
+}
+@section css{
+    <link href="~/Content/CssUI/Page.css" rel="stylesheet" />
+}
+<div class="input-group mb-5">
+    <span class="input-group-text" id="basic-addon1" style="width: 4%"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <form action="/Search" method="post" style="width: 96%">
+        <input type="text" name="q" class="form-control" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="basic-addon1">
+    </form>
+</div>
+<div class="mt-5"><a class="text-title" href="/">Trang chủ</a> / @ViewBag.TitlePage</div>
+<div class="mt-2 d-flex flex-dic-row list-film">
+    <div class="content-left">
+        <div class="row">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-sm-8 col-lg-4 mt-3">
+                        <div class="card">
+                            @foreach (var childitem in ViewBag.ListFile)
+                            {
+                                if (item.ID == childitem.FilmID)
+                                {
+                                    <a href="/Film?id=@item.ID">
+                                        <img src="@childitem.FileContent" style="height: 150px" class="card-img-top" alt="@childitem.Tag">
+                                    </a>
+                                }
+                            }
+                            <div class="card-body">
+                                <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <ul class="pagination mt-5">
+            @if (pagination.Total > 1)
+            {
+                var pageDisplay = (int)(pagination.MaxPage);
+                long totalPage = (long)(pagination.TotalPage);
+                int currentPage = (int)(pagination.Page);
+                var start = 1;
+                var end = totalPage;
+                var link = "/Category/Tag";
+                if (currentPage > 1)
+                {
+                    <li class="paginate_button page-item previous" id="dataTable_previous">
+                        <a href="@link?year=@ViewBag.Year&page=@pagination.Prev" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="paginate_button page-item previous disabled" id="dataTable_previous">
+                        <a href="@link?year=@ViewBag.Year&page=@pagination.Prev" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                    </li>
+                }
+                for (int i = start; i <= end; i++)
+                {
+                    if (currentPage == i)
+                    {
+                        <li class="paginate_button page-item active">
+                            <a href="@link?year=@ViewBag.Year&page=@i" aria-controls="dataTable" data-dt-idx="@i" tabindex="0" class="page-link">@i</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="paginate_button page-item ">
+                            <a href="@link?year=@ViewBag.Year&page=@i" aria-controls="dataTable" data-dt-idx="@i" tabindex="0" class="page-link">@i</a>
+                        </li>
+                    }
+                }
+                if (currentPage < totalPage)
+                {
+                    <li class="paginate_button page-item next" id="dataTable_next">
+                        <a href="@link?year=@ViewBag.Year&page=@pagination.Next" aria-controls="dataTable" data-dt-idx="@pagination.Next" tabindex="0" class="page-link">Next</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="paginate_button page-item next disabled" id="dataTable_next">
+                        <a href="@link?year=@ViewBag.Year&page=@pagination.Next" aria-controls="dataTable" data-dt-idx="@pagination.Next" tabindex="0" class="page-link">Next</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="content-right">
+        <div class="mt-5 flex-dic-col d-flex mt-5">
+            <div class="title-list-left">
+                <span class="d-flex" style="justify-content: center;">Phim xem nhiều</span>
+            </div>
+            <hr />
+            <div class="list-left">
+                <div class="row d-flex" style="justify-content: center">
+                    @if (ViewBag.TrendFilm != null)
+                    {
+                        foreach (var item in ViewBag.TrendFilm)
+                        {
+                            <div class="card mt-5 border-0" style="width: 16rem;">
+                                @foreach (var childitem in ViewBag.ListFile)
+                                {
+                                    if (item.ID == childitem.FilmID)
+                                    {
+                                        <a href="/Film?id=@item.ID"><img src="@childitem.FileContent" class="card-img-top" style="height: 150px;" alt="@childitem.Tag"></a>
+
+                                    }
+                                }
+                                <div class="card-body _padding-txt-card">
+                                    <h5 class="card-title">@item.Name</h5>
+                                    <a href="/Film?id=@item.ID" class="btn btn-primary">Go to Film</a>
+                                </div>
+
+                            </div>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

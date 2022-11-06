@@ -1,0 +1,312 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    var model = ViewBag.ListFile;
+    var listNewFilm = ViewBag.NewFilm;
+}
+@section css{
+    <link href="~/Content/CssUI/Home.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="~/Scripts/JsUI/Home.js"></script>
+}
+
+<div class="input-group mb-5">
+    <span class="input-group-text" style="width: 4%" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <form action="/Search" style="width: 96%" method="post">
+        <input type="text" name="q" class="form-control" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="basic-addon1">
+    </form>
+</div>
+<div class="content-list mt-5">
+    <div class="title-list d-flex">
+        <div class="title-left">
+            Phim mới cập nhật
+        </div>
+    </div>
+
+    @if (ViewBag.NewFilm != null)
+    {
+        if (ViewBag.CountNewFilm < 4)
+        {
+            foreach (var item in ViewBag.NewFilm)
+            {
+                <div class="mt-4">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="card border-0" style="width: 14rem;">
+                                @foreach (var childitem in model)
+                                {
+                                    if (item.ID == childitem.FilmID)
+                                    {
+                                        <a href="/Film?id=@item.ID">
+                                            <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                        </a>
+                                    }
+                                }
+                                <div class="card-body _padding-txt-card">
+                                    <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="container text-center my-3">
+                <div class="row mx-auto my-auto justify-content-center">
+                    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner"  style="padding-left: 50px;" role="listbox">
+                            @{
+                                var count = 0;
+                                foreach (var item in ViewBag.NewFilm)
+                                {
+                                    count++;
+                                    if (count == 1)
+                                    {
+                                        <div class="carousel-item active" data-bs-interval="2000">
+                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="card border-0" style="width:14rem;">
+                                                    @foreach (var childitem in model)
+                                                    {
+                                                        if (item.ID == childitem.FilmID)
+                                                        {
+                                                            <a href="/Film?id=@item.ID">
+                                                                <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                                            </a>
+                                                        }
+                                                    }
+                                                    <div class="card-body _padding-txt-card">
+                                                        <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="carousel-item" data-bs-interval="2000">
+                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="card border-0" style="width:14rem">
+                                                    @foreach (var childitem in model)
+                                                    {
+                                                        if (item.ID == childitem.FilmID)
+                                                        {
+                                                            <a href="/Film?id=@item.ID">
+                                                                <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                                            </a>
+                                                        }
+                                                    }
+                                                    <div class="card-body _padding-txt-card">
+                                                        <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            }
+
+                        </div>
+                        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<div class="content-list mt-5">
+    <div class="title-list d-flex">
+        <div class="title-left">
+            Phim mới cập nhật
+        </div>
+    </div>
+
+    @if (ViewBag.TrendFilm != null)
+    {
+        if (ViewBag.CountTrendFilm < 4)
+        {
+            foreach (var item in ViewBag.TrendFilm)
+            {
+                <div class="mt-4">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="card border-0" style="width: 14rem;">
+                                @foreach (var childitem in model)
+                                {
+                                    if (item.ID == childitem.FilmID)
+                                    {
+                                        <a href="/Film?id=@item.ID">
+                                            <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                        </a>
+                                    }
+                                }
+                                <div class="card-body _padding-txt-card">
+                                    <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="container text-center my-3">
+                <div class="row mx-auto my-auto justify-content-center">
+                    <div id="recipeCarousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" style="padding-left: 50px;" role="listbox">
+                            @{
+                                var count = 0;
+                                foreach (var item in ViewBag.NewFilm)
+                                {
+                                    count++;
+                                    if (count == 1)
+                                    {
+                                        <div class="carousel-item active" data-bs-interval="2000">
+                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="card border-0" style="width:14rem;">
+                                                    @foreach (var childitem in model)
+                                                    {
+                                                        if (item.ID == childitem.FilmID)
+                                                        {
+                                                            <a href="/Film?id=@item.ID">
+                                                                <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                                            </a>
+                                                        }
+                                                    }
+                                                    <div class="card-body _padding-txt-card">
+                                                        <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="carousel-item" data-bs-interval="2000">
+                                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="card border-0" style="width:14rem">
+                                                    @foreach (var childitem in model)
+                                                    {
+                                                        if (item.ID == childitem.FilmID)
+                                                        {
+                                                            <a href="/Film?id=@item.ID">
+                                                                <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                                            </a>
+                                                        }
+                                                    }
+                                                    <div class="card-body _padding-txt-card">
+                                                        <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            }
+
+                        </div>
+                        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel1" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel1" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<div class="content-list mt-5">
+    <div class="title-list d-flex">
+        <div class="title-left">
+            Phim việt
+        </div>
+        <div class="title-right">
+            @foreach (var item in ViewBag.Category)
+            {
+                if (item.Name == "Phim việt")
+                {
+                    <a href="/Category?id=@item.ID" class="text-title-right mt-3">xem thêm</a>
+                }
+            }
+
+        </div>
+    </div>
+    <div class="mt-4">
+        <div class="row">
+            @if (ViewBag.ListViet != null)
+            {
+                foreach (var item in ViewBag.ListViet)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                        <div class="card border-0" style="width: 16rem;">
+                            @foreach (var childitem in model)
+                            {
+                                if (item.ID == childitem.FilmID)
+                                {
+                                    <a href="/Film?id=@item.ID">
+                                        <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                    </a>
+                                }
+                            }
+                            <div class="card-body _padding-txt-card">
+                                <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<div class="content-list mt-5">
+    <div class="title-list d-flex">
+        <div class="title-left">
+            Hoạt hình - Thiếu nhi
+        </div>
+        <div class="title-right">
+            @foreach (var item in ViewBag.Category)
+            {
+                if (item.Name == "Hoạt hình")
+                {
+                    <a href="/Category?id=@item.ID" class="text-title-right mt-3">xem thêm</a>
+                }
+            }
+
+        </div>
+    </div>
+    <div class="mt-4">
+        <div class="row">
+            @if (ViewBag.ListHoatHinh != null)
+            {
+                foreach (var item in ViewBag.ListHoatHinh)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                        <div class="card border-0" style="width: 16rem;">
+                            @foreach (var childitem in model)
+                            {
+                                if (item.ID == childitem.FilmID)
+                                {
+                                    <a href="/Film?id=@item.ID">
+                                        <img src="@childitem.FileContent" class="card-img-top" style="height: 150px" alt="@childitem.Tag">
+                                    </a>
+                                }
+                            }
+                            <div class="card-body _padding-txt-card">
+                                <a href="/Film?id=@item.ID" class="card-text">@item.Name</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

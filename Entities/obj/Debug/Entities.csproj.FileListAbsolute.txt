@@ -1,0 +1,13 @@
+D:\baitap\BtWeb\Entities\bin\Debug\Entities.dll.config
+D:\baitap\BtWeb\Entities\bin\Debug\Entities.dll
+D:\baitap\BtWeb\Entities\bin\Debug\Entities.pdb
+D:\baitap\BtWeb\Entities\bin\Debug\EntityFramework.dll
+D:\baitap\BtWeb\Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\baitap\BtWeb\Entities\bin\Debug\EntityFramework.xml
+D:\baitap\BtWeb\Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\baitap\BtWeb\Entities\obj\Debug\Entities.Migrations.aaa.resources
+D:\baitap\BtWeb\Entities\obj\Debug\Entities.csproj.GenerateResource.cache
+D:\baitap\BtWeb\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+D:\baitap\BtWeb\Entities\obj\Debug\Entities.csproj.CopyComplete
+D:\baitap\BtWeb\Entities\obj\Debug\Entities.dll
+D:\baitap\BtWeb\Entities\obj\Debug\Entities.pdb

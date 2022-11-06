@@ -1,0 +1,15 @@
+D:\baitap\BtWeb\Repositories\bin\Debug\Repositories.dll.config
+D:\baitap\BtWeb\Repositories\bin\Debug\Repositories.dll
+D:\baitap\BtWeb\Repositories\bin\Debug\Repositories.pdb
+D:\baitap\BtWeb\Repositories\bin\Debug\Entities.dll
+D:\baitap\BtWeb\Repositories\bin\Debug\EntityFramework.dll
+D:\baitap\BtWeb\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+D:\baitap\BtWeb\Repositories\bin\Debug\Entities.pdb
+D:\baitap\BtWeb\Repositories\bin\Debug\Entities.dll.config
+D:\baitap\BtWeb\Repositories\bin\Debug\EntityFramework.xml
+D:\baitap\BtWeb\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+D:\baitap\BtWeb\Repositories\obj\Debug\Repositories.csproj.AssemblyReference.cache
+D:\baitap\BtWeb\Repositories\obj\Debug\Repositories.csproj.CoreCompileInputs.cache
+D:\baitap\BtWeb\Repositories\obj\Debug\Repositories.csproj.CopyComplete
+D:\baitap\BtWeb\Repositories\obj\Debug\Repositories.dll
+D:\baitap\BtWeb\Repositories\obj\Debug\Repositories.pdb
